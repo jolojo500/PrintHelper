@@ -1,0 +1,13 @@
+package com.example.printhelper
+
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.application
+
+fun main() = application {
+    Window(
+        onCloseRequest = ::exitApplication,
+        title = "PrintHelper",
+    ) {
+        App()
+    }
+}
