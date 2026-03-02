@@ -42,7 +42,8 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
-            implementation("io.github.vinceglb:filekit-dialogs-compose:0.12.0")
+            implementation("io.github.vinceglb:filekit-dialogs-compose:0.13.0")
+            implementation("io.github.vinceglb:filekit-coil:0.13.0")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

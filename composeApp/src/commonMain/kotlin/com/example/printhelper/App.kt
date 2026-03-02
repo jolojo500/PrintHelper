@@ -14,7 +14,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import coil3.ImageLoader
+import coil3.compose.setSingletonImageLoaderFactory
 import com.example.printhelper.presentation.MainScreen
+import io.github.vinceglb.filekit.coil.addPlatformFileSupport
 import org.jetbrains.compose.resources.painterResource
 
 import printhelper.composeapp.generated.resources.Res
@@ -23,6 +26,13 @@ import printhelper.composeapp.generated.resources.compose_multiplatform
 @Composable
 @Preview
 fun App() {
+    setSingletonImageLoaderFactory { context ->
+        ImageLoader.Builder(context)
+            .components {
+                addPlatformFileSupport()
+            }
+            .build()
+    }
     MaterialTheme {
         MainScreen()
     }
