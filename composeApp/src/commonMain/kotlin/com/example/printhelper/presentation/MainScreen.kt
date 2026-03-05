@@ -60,7 +60,7 @@ fun MainScreen(viewModel: MainViewModel = viewModel { MainViewModel() } ) { //do
                 Box(){ //perhaps change with card
                     //img and icon
                     AsyncImage(
-                        model = file.platformFile,  // FileKit+Coil gère direct
+                        model = file.platformFile,  //handled by filekit coil integration
                         contentDescription = file.name,
                         modifier = Modifier.aspectRatio(0.77f).fillMaxWidth(),
                         contentScale = ContentScale.Fit

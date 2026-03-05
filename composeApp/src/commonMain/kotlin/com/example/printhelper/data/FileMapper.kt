@@ -6,8 +6,10 @@ import io.github.vinceglb.filekit.PlatformFile
 import io.github.vinceglb.filekit.extension
 import io.github.vinceglb.filekit.mimeType
 import io.github.vinceglb.filekit.name
+import kotlin.uuid.ExperimentalUuidApi
 
 object FileMapper {
+    @OptIn(ExperimentalUuidApi::class)
     fun map(platformFile: PlatformFile): PickedFile{
         val fileType = resolveType(platformFile)
         return PickedFile(name = platformFile.name, fileType = fileType, platformFile = platformFile)
