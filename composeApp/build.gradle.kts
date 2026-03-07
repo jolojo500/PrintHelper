@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -44,6 +45,10 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation("io.github.vinceglb:filekit-dialogs-compose:0.13.0")
             implementation("io.github.vinceglb:filekit-coil:0.13.0")
+            implementation("org.jetbrains.androidx.navigation3:navigation3-ui:1.0.0-alpha05")
+            implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-navigation3:2.10.0-alpha05")
+
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

@@ -34,7 +34,8 @@ import org.jetbrains.compose.resources.painterResource
 
 @Composable
 @Preview
-fun MainScreen(viewModel: MainViewModel = viewModel { MainViewModel() } ) { //doing viewmodel() didnt work cause jvm doesnt know it lol (worked on adnroid tho)
+fun MainScreen( viewModel: MainViewModel = viewModel { MainViewModel() },
+                onNext: () -> Unit = {} ) { //doing viewmodel() didnt work cause jvm doesnt know it lol (worked on adnroid tho)
     val files by viewModel.files.collectAsStateWithLifecycle()
     //is the delegated quivalent to (if we didnt import compose.runtime.getValue)
     // val files = viewModel.files.collectAsStateWithLifecycle().value
@@ -81,6 +82,11 @@ fun MainScreen(viewModel: MainViewModel = viewModel { MainViewModel() } ) { //do
                         modifier = Modifier.align(Alignment.BottomStart).padding(4.dp)
                     )
                 }
+            }
+            item {
+            if (files.isNotEmpty()) {
+                Button(onClick = onNext) { Text("Preview") }
+            }
             }
         }
         //here will add other iconbutton with + to add more files
