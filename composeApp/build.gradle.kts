@@ -49,6 +49,7 @@ kotlin {
             implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-navigation3:2.10.0-alpha05")
 
             implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1")
+            implementation(libs.reorderable)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
