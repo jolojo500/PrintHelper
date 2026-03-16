@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.printhelper.data.FileMapper
 import com.example.printhelper.data.ImageRenderer
 import com.example.printhelper.data.createPdfRenderer
+import com.example.printhelper.data.createPrintManager
 import com.example.printhelper.domain.FileType
 import com.example.printhelper.domain.PickedFile
 import com.example.printhelper.domain.RenderedPage
@@ -21,6 +22,8 @@ class MainViewModel: ViewModel() {
 
     private val imageRenderer = ImageRenderer()
     private val pdfRenderer = createPdfRenderer()
+
+    private val printManager = createPrintManager()
 
     val files = _files.asStateFlow()
     val renderedPages = _renderedPages.asStateFlow()
@@ -53,6 +56,12 @@ class MainViewModel: ViewModel() {
             pages.toMutableList().apply {
                 add(toIndex, removeAt(fromIndex))
             }
+        }
+    }
+
+    fun printPages(){
+        viewModelScope.launch {
+            printManager.print(_renderedPages.value)
         }
     }
 }

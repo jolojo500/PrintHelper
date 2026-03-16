@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -54,5 +55,8 @@ fun PreviewScreen(viewModel: MainViewModel = viewModel { MainViewModel() }){
                 }
             }
         }
+        item { Button(onClick = { viewModel.printPages() }) {
+            Text("Print")
+        } }
     }
 }
